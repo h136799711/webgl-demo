@@ -1,0 +1,64 @@
+html,body,div,span,h1,h2,h3,h4,h5,h6,ul,ol,li,pre,code{
+	font-family:宋体;
+	padding:0;
+	border:0;
+	margin:0 auto;
+	color:#000;
+}
+body{
+text-align:center;
+ background-color:#FAE5E5;
+}
+h3{
+	color:#DEDE78;
+}
+pre {
+	text-align:left;
+ border:1px solid #A48484;
+ background-color:#F9E1E1;
+ margin:10px;
+ padding:10px;
+}
+code{
+	color:#000;
+}
+#test{
+	margin:0 auto;
+	text-align:center;
+	vertical-align:middle;
+	width:990px;
+	height:740px;
+}
+#test pre{
+}
+#canvas{
+	border:1px solid #cdcd22;
+	background-color:#eec;
+}
+
+/* common */
+.introduction{
+	color:#778899;
+	width:400px;
+}
+
+/* utils */
+.right{
+	float:right;
+}
+.left{
+	float:left;
+}
+.center{
+	margin:0 auto;
+	text-align:center;
+}
+.clear-right{
+	clear:right;
+}
+.clear-left{
+	clear:left;
+}
+.clear{
+	clear:both;
+}

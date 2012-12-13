@@ -1,0 +1,32 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  background: #151515 url("http://localhost:8080/github/lib/images/blackbg.png") 0 0;
+  color: #eaeaea;
+  font-size: 16px;
+  line-height: 1.5;
+  font-family:Verdana,Monaco,"Bitstream Vera Sans Mono", "Lucida Console", Terminal ;
+}
+header#head-title-bk{
+	background: rgba(55, 75,85, 0.1);
+	width: 100%;
+	padding: 20px 0;
+	font-size:2em ;
+	font-weight:bold ;
+}
+canvas#canvas{
+	border:1px solid #dd7;
+}
+
+section#main-content{
+	width:960px;
+	margin:0 auto;
+	text-align:center;
+}
+#introduction ul li span{
+	font-size:1.5em;
+	color:white;
+}
+aside#introduction ul li{
+	margin:20px;
+}

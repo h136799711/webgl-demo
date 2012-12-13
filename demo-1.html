@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Demo-1</title>
+<link rel="shortcut icon" href="http://localhost:8080/github/lib/favicon.ico" />
+<meta charset="utf-8">
+<meta name="author" content="hebidu">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="generator" content="EditPlus">
+<meta name="revised" content="hebidu @2012-10-31">
+<!--[if lt ie 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>  
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js">
+</script>
+<![endif]-->
+<link href="http://localhost:8080/github/lib/css/base.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="css/demo-1.css" rel="stylesheet" type="text/css" media="screen"/>
+<script id="shader-vs" type="x-shader/x-vertex">
+	attribute vec3 aVertexPosition;
+	attribute vec4 aVertexColor;
+	uniform mat4 uMVMatrix;
+	uniform mat4 uPMatrix;
+	varying highp vec4 vColor;
+	void main(void) {
+		gl_Position = uPMatrix * uMVMatrix * vec4(aVertexPosition, 1.0);
+		vColor = aVertexColor;
+	}
+</script>
+<script id="shader-fs" type="x-shader/x-fragment">
+	varying highp vec4 vColor;
+	void main(void) {
+		gl_FragColor = vColor;
+	}
+</script>
+
+<script data-main="js/demo-1.js" src="http://localhost:8080/github/lib/js/min/require.js" >
+</script>
+
+
+<script type="text/javascript">
+</script>
+
+
+
+
+</head>
+<body>
+<header id="head-title-bk">WebGL-Demo-1</header>
+<div id="container">
+<aside id="introduction">
+<ul>
+	<li><span>旁白说明</span></li>
+</ul>
+</aside>
+<section id="main-content">
+<canvas id="canvas" width="640" height="480" >
+</canvas>
+</section>
+</div>
+</body>
+</html>

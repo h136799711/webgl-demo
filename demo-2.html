@@ -40,7 +40,7 @@
 <script type="text/javascript" src="http://localhost:8080/github/lib/js/SyntaxHighlighter/shBrushJScript.js" >
 </script>
 <link href="http://localhost:8080/github/lib/js/SyntaxHighlighter/css/shCoreEclipse2.css" rel="stylesheet" type="text/css" media="screen"/>
-<script data-main="js/demo-2.js" src="http://localhost:8080/github/lib/js/min/require.js" >
+<script data-main="js/demo-2.js" src="/github/lib/js/min/require.js" >
 </script>
 
 </head>
@@ -48,26 +48,38 @@
 <header id="head-title-bk">WebGL-Demo-2</header>
 
 <div id="container">
-		<pre class="brush: js;">		
-			function add(a,b){
-				return a+b;
-			}
-			function add(a,b){
-				return a+b;
-			}</pre>
 <aside id="introduction">
 <ul>
-	<li><span>旁白说明</span></li>
+	<li><span>关键的代码</span></li>
 	<li class="code">
  <script type="syntaxhighlighter" class="brush: js" ><![CDATA[
-      	
-			function add(a,b){
-			var a=1;		var a=1;var a=1;		
-				return a+b;
-			}
-			function add(a,b){
-				return a+b;
-			}
+      	var ele = doc.body,input = glapp.Input,canvas = glapp.Canvas;
+	try{
+		//input.bindListeners(ele);
+		var ani = new renderAnim(),sq = new renderSquare();
+		function anim(){			
+			log("draw nothing");
+			canvas.initialize("canvas",ani);
+			canvas.render();
+			setTimeout(square,4000);
+		}
+		function square(){
+			log("draw a square");
+			canvas.initialize("canvas",sq);
+			canvas.render();	
+			setTimeout(anim,4000);
+		}
+		
+		square();
+		
+		//input.keydown(function(){
+		//	render.togglePause(arguments[0]);
+		//});
+
+	}catch(e){
+		log("Error message : "+e.message);
+	}finally{
+	}
 ]]></script>
 
 	<li>

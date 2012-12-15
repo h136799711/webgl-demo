@@ -1,11 +1,10 @@
 require.config({
     packages: [
-         "lib",
  		"test"
 		
      ]
  });
-require(["http://localhost:8080/github/lib/js/glapp/glapp.js","lib/render-animate","lib/render-square","http://localhost:8080//github/lib/js/jquery-1.8.3.js"],
+require(["http://localhost:8080/github/lib/js/glapp/glapp.js","render-animate","render-square","http://localhost:8080//github/lib/js/jquery-1.8.3.js"],
 	function(glapp,renderAnim,renderSquare){
 	console.log("demo-2");
 	console.log(arguments);

@@ -64,10 +64,10 @@ var utils = (function(){
 })();
 
 //event listener
-var EventListener = function (){
+var event = function (){
 	this._listeners= [];		
 }		
-EventListener.prototype.addEvent = function(type, fn,onetime) {
+event.prototype.addListener = function(type, fn,onetime) {
 		if (typeof this._listeners[type] === "undefined") {
 			this._listeners[type] = [];
 		}
@@ -81,32 +81,32 @@ EventListener.prototype.addEvent = function(type, fn,onetime) {
 		return false;
 };
 		
-EventListener.prototype.addEventForOneTime = function(type, fn) {
-		this.addEvent(type,fn,true);
+event.prototype.addListenerForOneTime = function(type, fn) {
+		this.addListener(type,fn,true);
 };
-EventListener.prototype.fireEvent = function(type, args) {
-		var arrayEvent = this._listeners[type];
-		if (arrayEvent instanceof Array) {
+event.prototype.fireListener = function(type, args) {
+		var arrayListener = this._listeners[type];
+		if (arrayListener instanceof Array) {
 			var i;
-			for (i = arrayEvent.length - 1; i >= 0; i -= 1) {
-				if (typeof arrayEvent[i] === "function") {
-						arrayEvent[i]({type: type,args: args	});
-						if(arrayEvent[i].onetime){
-							arrayEvent.splice(i, 1);
+			for (i = arrayListener.length - 1; i >= 0; i -= 1) {
+				if (typeof arrayListener[i] === "function") {
+						arrayListener[i]({type: type,args: args	});
+						if(arrayListener[i].onetime){
+							arrayListener.splice(i, 1);
 						}
 				}
 			}
 		}
 };
-EventListener.prototype.removeEvent = function(type, fn) {
+event.prototype.removeListener = function(type, fn) {
 	if (typeof type !== "string"){
 		return false;
 	}
-	var arrayEvent = this._listeners[type];
-	if (typeof arrayEvent !== "undefined" && typeof fn === "function") {
+	var arrayListener = this._listeners[type];
+	if (typeof arrayListener !== "undefined" && typeof fn === "function") {
 		var i;
-		for (i = arrayEvent.length - 1; i >= 0; i -= 1) {
-			if (arrayEvent[i] === fn) {
+		for (i = arrayListener.length - 1; i >= 0; i -= 1) {
+			if (arrayListener[i] === fn) {
 				this._listeners[type].splice(i, 1);
 			}
 		}
@@ -219,9 +219,9 @@ glapp.extend(glapp,(function(){
 
 		
 glapp.utils=utils;
-glapp.EventListener = new EventListener();
+glapp.event = new event();
 glapp.logger = new logger();
-glapp.extend(glapp,glapp.EventListener);
+glapp.extend(glapp,glapp.event);
 
 
 //window.glapp = glapp;

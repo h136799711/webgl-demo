@@ -6,8 +6,15 @@ require.config({
      ]
  });
 
-require(["lib/glapp","lib/render-animate","http://localhost:8080/github/lib/js/jquery-1.8.3.js","http://localhost:8080/github/lib/js/compat.js" ],
-function(glapp,render,shCore){
+require(["pathconfig"],function(pathConfig){
+	if(!pathConfig){
+		console.log(pathConfig);
+		alert("pathConfig not defined.");
+		return ;
+	}
+	var liburl = pathConfig.lib;
+require(["lib/glapp","lib/render-animate",liburl+"js/jquery-1.8.3.js",liburl+"js/compat.js" ],
+function(glapp,render){
 	console.log(arguments);
 var doc = document,ele,infodiv = "console";
 function log(msg){		
@@ -52,4 +59,5 @@ glapp.render();
 }
 
 
+});
 });

@@ -23,10 +23,17 @@ section#main-content{
 	margin:0 auto;
 	text-align:center;
 }
+#introduction{
+	float:left;
+	width:500px;
+}
 #introduction ul li span{
 	font-size:1.5em;
 	color:white;
 }
-aside#introduction ul li{
+aside#introduction  li{
 	margin:20px;
+}
+ .code{
+	width:480px !important;
 }

@@ -2,11 +2,13 @@ require.config({
     packages: [
          "lib",
  		"test"
+		
      ]
  });
 
-require(["lib/glapp","lib/render-animate","http://localhost:8080/github/lib/js/jquery-1.8.3.js","http://localhost:8080/github/lib/js/compat.js"],
-function(glapp,render){
+require(["lib/glapp","lib/render-animate","http://localhost:8080/github/lib/js/jquery-1.8.3.js","http://localhost:8080/github/lib/js/compat.js" ],
+function(glapp,render,shCore){
+	console.log(arguments);
 var doc = document,ele,infodiv = "console";
 function log(msg){		
 		var ele = doc.getElementById(infodiv) || doc.createElement("div");
@@ -31,6 +33,10 @@ if(!render){
 	return ;
 }
 
+SyntaxHighlighter.all();
+	
+
+
 try{
 	
 //变量
@@ -44,5 +50,6 @@ glapp.render();
 	ele.innerText = e.message;
 	doc.body.insertBefore(ele,doc.body.firstChild);
 }
+
 
 });

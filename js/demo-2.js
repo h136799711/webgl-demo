@@ -37,22 +37,30 @@ require(["http://localhost:8080/github/lib/js/glapp/glapp.js","render-animate","
 
 	var ele = doc.body,input = glapp.Input,canvas = glapp.Canvas;
 	try{
-		//input.bindListeners(ele);
+		input.initialize();
+		input.bindAll(ele);
+
 		var ani = new renderAnim(),sq = new renderSquare();
-		function anim(){			
-			log("draw nothing");
-			canvas.initialize("canvas",ani);
-			canvas.render();
-			setTimeout(square,4000);
-		}
-		function square(){
-			log("draw a square");
-			canvas.initialize("canvas",sq);
-			canvas.render();	
-			setTimeout(anim,4000);
-		}
+		ani.input = input;
+		ani.bindKeyListener();
+		glapp.addListener("initWebGL",function(){
+			console.log("InitWebGL");
+		});
+		canvas.initialize("canvas",ani);
+		canvas.executeProgram();
+		(function animLoop(){
+			canvas.executeProgram();
+//			setTimeout(square,4000);
+			requestAnimFrame(animLoop,document.getElementById("canvas"));
+		})();
+//		function square(){
+	//		log("draw a square");
+//			canvas.initialize("canvas",sq);
+//			canvas.render();	
+//			setTimeout(anim,4000);
+//		}
 		
-		square();
+//	anim();
 		
 		//input.keydown(function(){
 		//	render.togglePause(arguments[0]);

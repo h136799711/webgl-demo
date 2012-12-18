@@ -53,12 +53,12 @@ define(["http://localhost:8080/github/lib/js/glapp/render_tpl.js"],function(rend
 			this. gl.bindBuffer(this. gl.ARRAY_BUFFER, this.verticesColorBuffer);
 			this. gl.vertexAttribPointer(this. vertexColorAttribute,4,this. gl.FLOAT,false,0,0);
 			this. gl.drawArrays(this. gl.TRIANGLE_STRIP,0,4);
-		}
+	};
 	render.prototype.executeProgram = function(){
 			this.getMatrixUniforms();		
 			this.getVertexAttributes();
 			this.initBuffers();
 			this.drawScene();
-	}
+	};
 	return render;
 });

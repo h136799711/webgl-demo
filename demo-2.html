@@ -57,10 +57,12 @@
 	try{
 		//input.bindListeners(ele);
 		var ani = new renderAnim(),sq = new renderSquare();
+		ani.bindKeyListener();
 		function anim(){			
 			log("draw nothing");
 			canvas.initialize("canvas",ani);
 			canvas.render();
+			setTimeout(anim,4000);
 			setTimeout(square,4000);
 		}
 		function square(){
@@ -72,9 +74,7 @@
 		
 		square();
 		
-		//input.keydown(function(){
-		//	render.togglePause(arguments[0]);
-		//});
+
 
 	}catch(e){
 		log("Error message : "+e.message);
@@ -91,6 +91,8 @@
 </canvas>
 </section>
 </div>
-<script type="text/javascript">SyntaxHighlighter.all();</script>
+<script type="text/javascript">
+SyntaxHighlighter.all();
+</script>
 </body>
 </html>
